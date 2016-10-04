@@ -37,7 +37,11 @@ class Polynomial():
 		return p3
 		
 	def __mul__():
-		pass
+		result_p=Polynomial()
+                for i in self.p:
+                        for j in other.p:
+                                result_p[i+j] += self.p[i]*other.p[j]
+                return result_p
 		
 	def __eq__(self, other):
 		if len(self.p) != len(other.p):
