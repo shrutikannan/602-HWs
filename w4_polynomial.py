@@ -69,7 +69,7 @@ class Polynomial():
 
 	def __getitem__(self,key):
 		if key not in self.p:
-			return "None"
+			return 0
 		else:
 			return self.p[key]	
 		
