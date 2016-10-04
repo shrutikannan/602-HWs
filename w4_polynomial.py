@@ -59,7 +59,7 @@ class Polynomial():
 	def eval(self, x):
 		ans=0
 		for i in range(len(self.p)):
-			ans +=self.p[i]*(x**(len(self.p)-i-1))
+			ans +=self.p[i]*(x**(i))
 		return ans
 	
 	def __setitem__(self,key,item):
