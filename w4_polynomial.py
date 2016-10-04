@@ -68,7 +68,7 @@ class Polynomial():
 		
 	def eval(self, x):
 		ans=0
-		for i in self.p:
+		for i in range(len(self.p)):
 			ans +=self.p[i]*(x**(i))
 		return ans
 	
