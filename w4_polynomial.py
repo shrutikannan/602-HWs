@@ -36,7 +36,7 @@ class Polynomial():
 				p3[i]=other.p[i]
 		return p3
 		
-	def __mul__():
+	def __mul__(self, other):
 		result_p=Polynomial()
                 for i in self.p:
                         for j in other.p:
