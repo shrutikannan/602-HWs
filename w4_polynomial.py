@@ -68,12 +68,10 @@ class Polynomial():
 		self.p[key]=item
 
 	def __getitem__(self,key):
-		if key>len(self.p):
-			return "None"
-		elif not self.p[len(self.p)-key-1]:
+		if key not in self.p:
 			return "None"
 		else:
-			return self.p[len(self.p)-key-1]	
+			return self.p[key]	
 		
 	def __str__(self):
 		#print(self.p)
