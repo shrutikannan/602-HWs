@@ -11,7 +11,6 @@ class Polynomial():
 			val.append(self.p[len(self.p)-i-1])		#exp= i and values are arranged in descending order
 		self.p=dict(zip(exp,val))					#converting to dictionary with lsit 'exp' as keys and list 'val' as values
 		
-		
 	def __add__(self, other):		
 		p3=Polynomial()
 		for i in self.p:					#if key in self and other, add values
@@ -38,30 +37,30 @@ class Polynomial():
 		
 	def __mul__(self, other):
 		result_p=Polynomial()
-                for i in self.p:
-                        for j in other.p:
-                                result_p[i+j] += self.p[i]*other.p[j]
-                return result_p
+		for i in self.p:
+			for j in other.p:
+				result_p[i+j]+=self.p[i]*other.p[j]
+		return result_p
 		
 	def __eq__(self, other):
-		flag=0
-                if len(self.p)!=len(other.p):
-                        return False
-                else:
-                        for i in self.p:
-                                if self.p==other.p:
-                                        flag=1
-                if flag==1:
-                        return True
-                return False
-	
-	#Error in derivative
-	def differentiate(self):
-                diff = Polynomial(self.p)
-                for i in self.p:
-                    self.p[i+1] = self.p[i]*diff.p[i]
-                del self.p[0]
+		if len(self.p) != len(other.p):
+			return False
+		else:
+			for i in range(len(self.p)):
+				if(other.p[i] == self.p[i]):
+					flag=1
+				else:
+					flag=0
+			if(flag==1):
+				return True
+		return False
 		
+	def differentiate(self):
+		diff = Polynomial(self.p)
+		for i in self.p:
+			self.p[i+1] = self.p[i]*diff.p[i]
+		del self.p[0]
+				
 	def deriv(self):
 		dpdx = Polynomial(self.p[:]) 
 		dpdx.differentiate()
@@ -69,7 +68,7 @@ class Polynomial():
 		
 	def eval(self, x):
 		ans=0
-		for i in range(len(self.p)):
+		for i in self.p:
 			ans +=self.p[i]*(x**(i))
 		return ans
 	
