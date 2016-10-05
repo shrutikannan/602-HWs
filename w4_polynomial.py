@@ -43,17 +43,19 @@ class Polynomial():
 		return result_p
 		
 	def __eq__(self, other):
-		if len(self.p) != len(other.p):
-			return False
-		else:
-			for i in range(len(self.p)):
-				if(other.p[i] == self.p[i]):
-					flag=1
-				else:
-					flag=0
-			if(flag==1):
-				return True
-		return False
+		flag=0
+                if len(self.p)!=len(other.p):
+                        return False
+                else:
+                        for i in self.p:
+                                if self.p[i]==other.p[i]:
+                                        flag=1
+                                else:
+                                        flag=0
+                                        break
+                if flag==1:
+                        return True
+                return False
 		
 	def differentiate(self):
 		diff = Polynomial(self.p)
